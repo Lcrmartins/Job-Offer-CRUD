@@ -1,0 +1,53 @@
+﻿@model JobWebApp.Models.JobOffer
+@{
+    ViewData["Title"] = "Job Offer Application";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+
+    @if (TempData["message"] != null)
+    {
+        <div class="alert alert-dismissible alert-info fade show" role="alert">
+            <strong>@TempData["message"]</strong>
+            <button type="button" class="btn-close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true"></span>
+            </button>
+        </div>
+    }
+
+    <div class="row">
+        <div class="col-sm-6">
+            <h3>Job Offer Application</h3>
+        </div>
+        <div class="col-sm-6">
+            <a class="btn btn-dark d-block" asp-action="Create" asp-controller="JobOffers">Create New Job Offer Record</a>
+        </div>
+    </div>
+    <div class="row">
+       
+        <table class="table table-bordered table-striped ">
+            <thead>
+                   
+            </thead>                             
+                
+            <tbody>
+                <tr><td>@Html.DisplayNameFor(m => m.Id) item.Id</td></tr>
+                <tr><td>@Html.DisplayNameFor(m => m.Title) item.Title</td></tr>
+                <tr><td>@Html.DisplayNameFor(m => m.Local) item.Local</td></tr>
+                <tr><td>@Html.DisplayNameFor(m => m.PostDate) item.PostDate.ToString("d")</td></tr>
+                <tr><td>@Html.DisplayNameFor(m => m.Wage) item.Wage</td></tr>
+                <tr><td>@Html.DisplayNameFor(m => m.Description) item.Description</td></tr>
+                <tr><td>@Html.DisplayNameFor(m => m.Responsibility) item.Responsibility</td></tr>
+                <tr><td>@Html.DisplayNameFor(m => m.Requirement) item.Requirement</td></tr>
+                    @*<td>
+                    <a asp-controller="JobOffers" asp-action="Edit" asp-route-id="@item.Id" class="btn btn-warning"> Edit</a>
+                    <a asp-controller="JobOffers" asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger"> Delete</a>
+                    <a asp-controller="JobOffers" asp-action="Detail" asp-route-id="@item.Id" class="btn btn-success"> Detail</a>
+                    </td>*@
+            </tbody>
+        </table>
+        
+    </div>
+</div>
+

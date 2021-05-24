@@ -1,0 +1,81 @@
+﻿@model JobWebApp.Models.JobOffer
+@{
+    ViewData["Title"] = "Delete a Job Offer Record";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+
+    <div class="row">
+        <div class="col-sm-12">
+            <h3>Delete a Job Offer Record</h3>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-10">
+            <form method="post" asp-action="DeleteJob">
+                <input type="hidden" asp-action="Id" />
+
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="Title" class="control-label"></label>
+                    <input asp-for="Title" class="form-control" disabled />
+                    <span asp-validation-for="Title" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="Local" class="control-label"></label>
+                    <input asp-for="Local" class="form-control" disabled />
+                    <span asp-validation-for="Local" class="text-danger"></span>
+                </div>
+                
+                <div class="form-group">
+                    <label asp-for="Description" class="control-label"></label>
+                    <input asp-for="Description" class="form-control" disabled />
+                    <span asp-validation-for="Description" class="text-danger"></span>
+                </div>                
+                
+                <div class="form-group">
+                    <label asp-for="Responsibility" class="control-label"></label>
+                    <input asp-for="Responsibility" class="form-control" disabled />
+                    <span asp-validation-for="Responsibility" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="Requirement" class="control-label"></label>
+                    <input asp-for="Requirement" class="form-control" disabled />
+                    <span asp-validation-for="Requirement" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="PostDate" class="control-label"></label>
+                    <input asp-for="PostDate" class="form-control" disabled />
+                    <span asp-validation-for="PostDate" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="Wage" class="control-label"></label>
+                    <input asp-for="Wage" class="form-control" disabled />
+                    <span asp-validation-for="Wage" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <p><span></span></p>
+                    <a asp-controller="JobOffers" asp-action="Index" class="btn btn-success"> Return without delet</a>
+                    <input type="submit" value="Delete" class="btn btn-danger"></>
+                    
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts{
+
+    @{
+        <partial name="_ValidationScriptsPartial" />
+    }
+}
+
+

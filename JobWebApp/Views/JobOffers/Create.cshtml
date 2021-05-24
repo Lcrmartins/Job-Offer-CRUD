@@ -1,0 +1,78 @@
+﻿@model JobWebApp.Models.JobOffer
+@{
+    ViewData["Title"] = "Create a New Job Offer";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+
+    <div class="row">
+        <div class="col-sm-12">
+            <h3>Create a New Job Offer</h3>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-10">
+            <form method="post" asp-action="Create">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="Title" class="control-label"></label>
+                    <input asp-for="Title" class="form-control"></>
+                    <span asp-validation-for="Title" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="Local" class="control-label"></label>
+                    <input asp-for="Local" class="form-control"></>
+                    <span asp-validation-for="Local" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="Description" class="control-label"></label>
+                    <input asp-for="Description" class="form-control"></>
+                    <span asp-validation-for="Description" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="Responsibility" class="control-label"></label>
+                    <input asp-for="Responsibility" class="form-control"></>
+                    <span asp-validation-for="Responsibility" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="Requirement" class="control-label"></label>
+                    <input asp-for="Requirement" class="form-control"></>
+                    <span asp-validation-for="Requirement" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="PostDate" class="control-label"></label>
+                    <input asp-for="PostDate" class="form-control"></>
+                    <span asp-validation-for="PostDate" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="Wage" class="control-label"></label>
+                    <input asp-for="Wage" class="form-control"></>
+                    <span asp-validation-for="Wage" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <span></span>
+                    <a asp-controller="JobOffers" asp-action="Index" class="btn btn-success"> Return without create</a>
+                    <input type="submit" value="Create Record" class="btn btn-primary"></>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts{
+
+    @{
+        <partial name="_ValidationScriptsPartial" />
+    }
+}
+
+
