@@ -1,8 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Threading.Tasks;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace JobWebApp.Models
 {
@@ -24,9 +22,9 @@ namespace JobWebApp.Models
         public string Description { get; set; }
 
         [Required(ErrorMessage = "You must fill the Responsibility field.")]
-        [StringLength(300, ErrorMessage = "The {0} must be at least {2} and a maximum of {1} characters.", MinimumLength = 3)] 
+        [StringLength(300, ErrorMessage = "The {0} must be at least {2} and a maximum of {1} characters.", MinimumLength = 3)]
         public string Responsibility { get; set; }
-        
+
         [Required(ErrorMessage = "You must fill the Requirement field.")]
         [StringLength(300, ErrorMessage = "The {0} must be at least {2} and a maximum of {1} characters.", MinimumLength = 3)]
         public string Requirement { get; set; }
@@ -39,5 +37,13 @@ namespace JobWebApp.Models
         [Required(ErrorMessage = "You must fill the Wage field.")]
         public decimal Wage { get; set; }
 
+        [Required(ErrorMessage = "You must fill the social security contribution field (in %).")]
+        [Range(0, 10)]
+        public decimal Contribution { get; set; }
+
+        [ForeignKey("Position")]
+        public int IdType { get; set; }
+
+        public virtual Position Position { get; set; }
     }
 }

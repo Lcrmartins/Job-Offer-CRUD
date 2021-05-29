@@ -26,10 +26,16 @@ namespace JobWebApp.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<decimal>("Contribution")
+                        .HasColumnType("decimal(18,2)");
+
                     b.Property<string>("Description")
                         .IsRequired()
                         .HasMaxLength(300)
                         .HasColumnType("nvarchar(300)");
+
+                    b.Property<int>("IdType")
+                        .HasColumnType("int");
 
                     b.Property<string>("Local")
                         .IsRequired()
@@ -59,7 +65,37 @@ namespace JobWebApp.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("IdType");
+
                     b.ToTable("Job");
+                });
+
+            modelBuilder.Entity("JobWebApp.Models.Position", b =>
+                {
+                    b.Property<int>("IdType")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Type")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.HasKey("IdType");
+
+                    b.ToTable("Position");
+                });
+
+            modelBuilder.Entity("JobWebApp.Models.JobOffer", b =>
+                {
+                    b.HasOne("JobWebApp.Models.Position", "Position")
+                        .WithMany()
+                        .HasForeignKey("IdType")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Position");
                 });
 #pragma warning restore 612, 618
         }

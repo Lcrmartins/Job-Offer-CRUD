@@ -1,10 +1,7 @@
 ﻿using JobWebApp.Data;
 using JobWebApp.Models;
 using Microsoft.AspNetCore.Mvc;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace JobWebApp.Controllers
 {
@@ -73,7 +70,7 @@ namespace JobWebApp.Controllers
                 _context.Job.Update(job);
                 _context.SaveChanges();
 
-                TempData["message"] = "The book has been correctly updated.";
+                TempData["message"] = "The Job record has been correctly updated.";
                 return RedirectToAction("Index");
             }
 
@@ -116,7 +113,7 @@ namespace JobWebApp.Controllers
             TempData["message"] = "The record has been correctly removed.";
             return RedirectToAction("Index");
         }
-        
+
         // Http Get Detail
         public IActionResult Detail(int? id)
         {
@@ -135,27 +132,5 @@ namespace JobWebApp.Controllers
 
             return View(job);
         }
-
-        // Http Get Detail-Temp
-        public IActionResult DetailTemp(int? id)
-        {
-            if (id == null || id == 0)
-            {
-                return NotFound();
-            }
-
-            //Obtain the job
-            var job = _context.Job.Find(id);
-
-            if (job == null)
-            {
-                return NotFound();
-            }
-
-            return View(job);
-        }
-
-
-
     }
 }

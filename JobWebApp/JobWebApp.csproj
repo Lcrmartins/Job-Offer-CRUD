@@ -6,20 +6,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Migrations\**" />
-    <Content Remove="Migrations\**" />
-    <EmbeddedResource Remove="Migrations\**" />
-    <None Remove="Migrations\**" />
-  </ItemGroup>
-
-  <ItemGroup>
     <Content Remove="Views\JobOffers\DetailTemp.cshtml" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Compile Include="Migrations\20210523210248_init.cs" />
-    <Compile Include="Migrations\20210523210248_init.Designer.cs" />
-    <Compile Include="Migrations\AppDbContextModelSnapshot.cs" />
   </ItemGroup>
 
   <ItemGroup>

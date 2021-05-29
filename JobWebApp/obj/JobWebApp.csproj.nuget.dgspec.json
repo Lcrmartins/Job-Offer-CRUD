@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\JobWebApp\\JobWebApp\\JobWebApp\\JobWebApp.csproj": {}
+    "D:\\GitHub\\Job-Offer-CRUD\\JobWebApp\\JobWebApp.csproj": {}
   },
   "projects": {
-    "D:\\JobWebApp\\JobWebApp\\JobWebApp\\JobWebApp.csproj": {
+    "D:\\GitHub\\Job-Offer-CRUD\\JobWebApp\\JobWebApp.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\JobWebApp\\JobWebApp\\JobWebApp\\JobWebApp.csproj",
+        "projectUniqueName": "D:\\GitHub\\Job-Offer-CRUD\\JobWebApp\\JobWebApp.csproj",
         "projectName": "JobWebApp",
-        "projectPath": "D:\\JobWebApp\\JobWebApp\\JobWebApp\\JobWebApp.csproj",
+        "projectPath": "D:\\GitHub\\Job-Offer-CRUD\\JobWebApp\\JobWebApp.csproj",
         "packagesPath": "C:\\Users\\lcrma\\.nuget\\packages\\",
-        "outputPath": "D:\\JobWebApp\\JobWebApp\\JobWebApp\\obj\\",
+        "outputPath": "D:\\GitHub\\Job-Offer-CRUD\\JobWebApp\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -84,7 +84,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.203\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.300\\RuntimeIdentifierGraph.json"
         }
       }
     }

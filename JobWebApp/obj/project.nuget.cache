@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "KkMRcLI/B4mbEUqaoSH2cG9Y5oZdi/Fc/WZWBysKxQ3BiUVqil0BevGkkTK7+udIxFASaUrderI6Gk1njCX5FA==",
+  "dgSpecHash": "7kkvPR4SVXH+c77Hg7R0bPuScRL5PC1pl5O5bHFZ7frq2jk6UbHw7K1eCTRIeVvdfVdVT5zfxUDOgDd0id/jaw==",
   "success": true,
-  "projectFilePath": "D:\\JobWebApp\\JobWebApp\\JobWebApp\\JobWebApp.csproj",
+  "projectFilePath": "D:\\GitHub\\Job-Offer-CRUD\\JobWebApp\\JobWebApp.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\lcrma\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\lcrma\\.nuget\\packages\\microsoft.aspnetcore.html.abstractions\\2.2.0\\microsoft.aspnetcore.html.abstractions.2.2.0.nupkg.sha512",
