@@ -1,0 +1,26 @@
+﻿@model JobWebApp.Models.Position
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<body style="background-color:#c4ddd3;">
+    <h1>Details</h1>
+
+    <div>
+        <h4>Position</h4>
+        <hr />
+        <dl class="row">
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.PositionType)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.PositionType)
+            </dd>
+        </dl>
+    </div>
+    <div>
+        <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
+        <a asp-action="Index">Back to List</a>
+    </div>
+</body>

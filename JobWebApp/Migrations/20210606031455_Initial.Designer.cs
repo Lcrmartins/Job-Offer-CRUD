@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace JobWebApp.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20210529035240_Initial")]
+    [Migration("20210606031455_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -74,19 +74,29 @@ namespace JobWebApp.Migrations
 
             modelBuilder.Entity("JobWebApp.Models.Position", b =>
                 {
-                    b.Property<int>("IdType")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("Type")
+                    b.Property<string>("PositionType")
                         .IsRequired()
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
-                    b.HasKey("IdType");
+                    b.HasKey("Id");
 
                     b.ToTable("Position");
+                });
+
+            modelBuilder.Entity("JobWebApp.Models.ViewModels.JobOfferVM", b =>
+                {
+                    b.Property<int?>("JobOfferId")
+                        .HasColumnType("int");
+
+                    b.HasIndex("JobOfferId");
+
+                    b.ToTable("jobOfferVM");
                 });
 
             modelBuilder.Entity("JobWebApp.Models.JobOffer", b =>
@@ -98,6 +108,15 @@ namespace JobWebApp.Migrations
                         .IsRequired();
 
                     b.Navigation("Position");
+                });
+
+            modelBuilder.Entity("JobWebApp.Models.ViewModels.JobOfferVM", b =>
+                {
+                    b.HasOne("JobWebApp.Models.JobOffer", "JobOffer")
+                        .WithMany()
+                        .HasForeignKey("JobOfferId");
+
+                    b.Navigation("JobOffer");
                 });
 #pragma warning restore 612, 618
         }

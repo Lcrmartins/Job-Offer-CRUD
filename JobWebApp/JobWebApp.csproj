@@ -6,7 +6,14 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Content Remove="Views\JobOffers\DetailTemp.cshtml" />
+    <Compile Remove="Views\JobOffer\BKP\**" />
+    <Content Remove="Views\JobOffer\BKP\**" />
+    <EmbeddedResource Remove="Views\JobOffer\BKP\**" />
+    <None Remove="Views\JobOffer\BKP\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Remove="Views\JobOffer\DetailTemp.cshtml" />
   </ItemGroup>
 
   <ItemGroup>

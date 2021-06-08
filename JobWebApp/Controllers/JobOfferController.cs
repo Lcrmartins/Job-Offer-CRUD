@@ -1,46 +1,65 @@
 ﻿using JobWebApp.Data;
 using JobWebApp.Models;
+using JobWebApp.Models.ViewModels;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace JobWebApp.Controllers
 {
-    public class JobOffersController : Controller
+    public class JobOfferController : Controller
     {
 
         private readonly AppDbContext _context;
 
-        public JobOffersController(AppDbContext context)
+        public JobOfferController(AppDbContext context)
         {
             _context = context;
         }
         public IActionResult Index()
         {
             IEnumerable<JobOffer> listJobOffers = _context.Job;
+
+            foreach(var job in listJobOffers)
+            {
+                job.Position = _context.Position.FirstOrDefault(u => u.Id == job.IdType);                
+            }
             return View(listJobOffers);
         }
 
         // Http Get Create
         public IActionResult Create()
         {
-            return View();
+            JobOfferVM jobOfferVM = new JobOfferVM()
+            {
+                JobOffer = new JobOffer(),
+                PositionDropDown = _context.Position.Select(i => new SelectListItem
+                {
+                    Text = i.PositionType,
+                    Value = i.Id.ToString()
+                })
+            };
+
+            return View(jobOfferVM);
         }
 
         // Http Post Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Create(JobOffer job)
+        public IActionResult Create(JobOfferVM job)
         {
             if (ModelState.IsValid)
             {
-                _context.Job.Add(job);
+                job.JobOffer.ModWage = job.JobOffer.Wage * (1 + job.JobOffer.Contribution / 100);
+                _context.Job.Add(job.JobOffer);
                 _context.SaveChanges();
 
                 TempData["message"] = "The Job Offer has been correctly registred.";
                 return RedirectToAction("Index");
             }
 
-            return View();
+            return View(job);
         }
 
         // Http Get Edit
@@ -52,6 +71,7 @@ namespace JobWebApp.Controllers
             }
 
             //Obtain the Job
+            
             var job = _context.Job.Find(id);
             if (job == null)
             {
@@ -74,7 +94,7 @@ namespace JobWebApp.Controllers
                 return RedirectToAction("Index");
             }
 
-            return View();
+            return View(job);
         }
         // Http Get Delete
         public IActionResult Delete(int? id)
@@ -98,7 +118,7 @@ namespace JobWebApp.Controllers
         // Http Post Delete
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult DeleteJob(int? id)
+        public IActionResult DeleteJob(int? id, string checker)
         {
             // obter o job por id
             var job = _context.Job.Find(id);
@@ -107,16 +127,27 @@ namespace JobWebApp.Controllers
             {
                 return NotFound();
             }
-            _context.Job.Remove(job);
-            _context.SaveChanges();
 
-            TempData["message"] = "The record has been correctly removed.";
-            return RedirectToAction("Index");
+            var check = job.Title.Substring(0, 6);
+            if (checker == check)
+            {
+                _context.Job.Remove(job);
+                _context.SaveChanges();
+                TempData["message"] = "The record has been correctly removed.";
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                TempData["message"] = "The validation failed. The text typed doesn't match. Type exactly the SIX first char of the job Title Name.";
+                return RedirectToAction("Delete","JobOffer", new { @id = id });
+
+            }
         }
 
         // Http Get Detail
+        
         public IActionResult Detail(int? id)
-        {
+        {            
             if (id == null || id == 0)
             {
                 return NotFound();
@@ -129,8 +160,11 @@ namespace JobWebApp.Controllers
             {
                 return NotFound();
             }
-
+            job.Position = _context.Position.FirstOrDefault(u => u.Id == job.IdType);
             return View(job);
         }
+
+        
+
     }
 }

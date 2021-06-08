@@ -11,13 +11,13 @@ namespace JobWebApp.Migrations
                 name: "Position",
                 columns: table => new
                 {
-                    IdType = table.Column<int>(type: "int", nullable: false)
+                    Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Type = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false)
+                    PositionType = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Position", x => x.IdType);
+                    table.PrimaryKey("PK_Position", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -43,18 +43,42 @@ namespace JobWebApp.Migrations
                         name: "FK_Job_Position_IdType",
                         column: x => x.IdType,
                         principalTable: "Position",
-                        principalColumn: "IdType",
+                        principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "jobOfferVM",
+                columns: table => new
+                {
+                    JobOfferId = table.Column<int>(type: "int", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.ForeignKey(
+                        name: "FK_jobOfferVM_Job_JobOfferId",
+                        column: x => x.JobOfferId,
+                        principalTable: "Job",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateIndex(
                 name: "IX_Job_IdType",
                 table: "Job",
                 column: "IdType");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_jobOfferVM_JobOfferId",
+                table: "jobOfferVM",
+                column: "JobOfferId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.DropTable(
+                name: "jobOfferVM");
+
             migrationBuilder.DropTable(
                 name: "Job");
 

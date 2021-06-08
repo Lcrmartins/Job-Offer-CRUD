@@ -1,4 +1,5 @@
 ﻿using JobWebApp.Models;
+using JobWebApp.Models.ViewModels;
 using Microsoft.EntityFrameworkCore;
 
 namespace JobWebApp.Data
@@ -11,5 +12,7 @@ namespace JobWebApp.Data
         }
         public DbSet<JobOffer> Job { get; set; }
         public DbSet<Position> Position { get; set; }
+        public DbSet<JobOfferVM> jobOfferVM { get; set; }
+
     }
 }

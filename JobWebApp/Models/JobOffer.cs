@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -30,19 +31,26 @@ namespace JobWebApp.Models
         public string Requirement { get; set; }
 
         [Required(ErrorMessage = "You must fill the Post Date field.")]
-        [DataType(DataType.Date)]
+        [DataType(DataType.Date, ErrorMessage ="Date in wrong format")]
         [Display(Name = "Post Date")]
-        public DateTime PostDate { get; set; }
+        public DateTime? PostDate { get; set; }
 
         [Required(ErrorMessage = "You must fill the Wage field.")]
+        [Range(1, 1000000, ErrorMessage = "The Wage must be from $1.00 to $1M.")]
+        [Column(TypeName = "decimal(18,2)")]
         public decimal Wage { get; set; }
 
-        [Required(ErrorMessage = "You must fill the social security contribution field (in %).")]
-        [Range(0, 10)]
+        [Required(ErrorMessage = "You must fill the contribution field (in %).")]
+        [Range(0.1, 10)]
+        [Column(TypeName = "decimal(18,2)")]
         public decimal Contribution { get; set; }
+        
+        [Column(TypeName = "decimal(18,2)")]
+        public decimal? ModWage { get; set; }
 
-        [ForeignKey("Position")]
+        [DisplayName("Job Position")]
         public int IdType { get; set; }
+        [ForeignKey("IdType")]
 
         public virtual Position Position { get; set; }
     }
