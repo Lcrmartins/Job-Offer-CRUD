@@ -26,13 +26,13 @@
                 </select>
                 <span asp-validation-for="JobOffer.IdType" class="text-danger"></span>
             </div>
-
-            <div class="form-group">
-                <br>
+        </div>
+        <div class="col-md-10">
+            <div class="offset-md-5">
                 <a asp-controller="Position" asp-action="Create" class="btn btn-outline-info">Create New PositionType</a>
             </div>
-
-
+        </div>
+        <div class="col-md-4">
             <div class="form-group">
                 <br>
                 <label asp-for="JobOffer.Local" class="control-label"></label>
@@ -40,7 +40,7 @@
                 <span asp-validation-for="JobOffer.Local" class="text-danger"></span>
             </div>
         </div>
-        <div class="col-md-10">
+        <div class="col-md-12">
             <br>
             <div class="form-group">
                 <label asp-for="JobOffer.Description" class="control-label"></label>
@@ -90,13 +90,9 @@
             </div>
         </div>
     </form>
+</body>        
 
-    <div>
-
-    </div>
-
-    @section Scripts{
-        @{ <partial name="_ValidationScriptsPartial" />
-    }
-    }
-</body>
+@section Scripts{
+    @{ <partial name="_ValidationScriptsPartial" />
+}
+}

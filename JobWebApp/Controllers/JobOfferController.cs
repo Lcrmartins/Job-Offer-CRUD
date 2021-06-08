@@ -19,7 +19,7 @@ namespace JobWebApp.Controllers
         }
         public IActionResult Index()
         {
-            IEnumerable<JobOffer> listJobOffers = _context.Job;
+            IEnumerable<JobOffer> listJobOffers = _context.JobOffer;
 
             foreach(var job in listJobOffers)
             {
@@ -52,7 +52,7 @@ namespace JobWebApp.Controllers
             if (ModelState.IsValid)
             {
                 job.JobOffer.ModWage = job.JobOffer.Wage * (1 + job.JobOffer.Contribution / 100);
-                _context.Job.Add(job.JobOffer);
+                _context.JobOffer.Add(job.JobOffer);
                 _context.SaveChanges();
 
                 TempData["message"] = "The Job Offer has been correctly registred.";
@@ -65,29 +65,39 @@ namespace JobWebApp.Controllers
         // Http Get Edit
         public IActionResult Edit(int? id)
         {
+            JobOfferVM jobOfferVM = new JobOfferVM()
+            {
+                JobOffer = new JobOffer(),
+                PositionDropDown = _context.Position.Select(i => new SelectListItem
+                {
+                    Text = i.PositionType,
+                    Value = i.Id.ToString()
+                })
+            };
             if (id == null || id == 0)
             {
                 return NotFound();
             }
 
-            //Obtain the Job
-            
-            var job = _context.Job.Find(id);
-            if (job == null)
+            jobOfferVM.JobOffer = _context.JobOffer.Find(id);
+
+            if (jobOfferVM.JobOffer == null)
             {
                 return NotFound();
             }
-            return View(job);
+                        
+            return View(jobOfferVM);
         }
 
         // Http Post Edit
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Edit(JobOffer job)
+        public IActionResult Edit(JobOfferVM job)
         {
             if (ModelState.IsValid)
             {
-                _context.Job.Update(job);
+                job.JobOffer.ModWage = job.JobOffer.Wage * (1 + job.JobOffer.Contribution / 100);
+                _context.JobOffer.Update(job.JobOffer);
                 _context.SaveChanges();
 
                 TempData["message"] = "The Job record has been correctly updated.";
@@ -105,7 +115,7 @@ namespace JobWebApp.Controllers
             }
 
             //Obtain the Job
-            var job = _context.Job.Find(id);
+            var job = _context.JobOffer.Find(id);
 
             if (job == null)
             {
@@ -121,7 +131,7 @@ namespace JobWebApp.Controllers
         public IActionResult DeleteJob(int? id, string checker)
         {
             // obter o job por id
-            var job = _context.Job.Find(id);
+            var job = _context.JobOffer.Find(id);
 
             if (job == null)
             {
@@ -131,7 +141,7 @@ namespace JobWebApp.Controllers
             var check = job.Title.Substring(0, 6);
             if (checker == check)
             {
-                _context.Job.Remove(job);
+                _context.JobOffer.Remove(job);
                 _context.SaveChanges();
                 TempData["message"] = "The record has been correctly removed.";
                 return RedirectToAction("Index");
@@ -154,7 +164,7 @@ namespace JobWebApp.Controllers
             }
 
             //Obtain the job
-            var job = _context.Job.Find(id);
+            var job = _context.JobOffer.Find(id);
 
             if (job == null)
             {
