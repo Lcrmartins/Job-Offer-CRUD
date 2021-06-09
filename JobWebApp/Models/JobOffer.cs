@@ -44,7 +44,8 @@ namespace JobWebApp.Models
         [Range(0.1, 10)]
         [Column(TypeName = "decimal(18,2)")]
         public decimal Contribution { get; set; }
-        
+
+        [DisplayName("Corrected Wage")]
         [Column(TypeName = "decimal(18,2)")]
         public decimal? ModWage { get; set; }
 

@@ -7203,11 +7203,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\lcrma\\Source\\Repos\\Lcrmartins\\Job-Offer-CRUD\\JobWebApp\\JobWebApp.csproj",
+      "projectUniqueName": "D:\\GitHub\\Lcrmartins\\Job-Offer-CRUD\\JobWebApp\\JobWebApp.csproj",
       "projectName": "JobWebApp",
-      "projectPath": "C:\\Users\\lcrma\\Source\\Repos\\Lcrmartins\\Job-Offer-CRUD\\JobWebApp\\JobWebApp.csproj",
+      "projectPath": "D:\\GitHub\\Lcrmartins\\Job-Offer-CRUD\\JobWebApp\\JobWebApp.csproj",
       "packagesPath": "C:\\Users\\lcrma\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\lcrma\\Source\\Repos\\Lcrmartins\\Job-Offer-CRUD\\JobWebApp\\obj\\",
+      "outputPath": "D:\\GitHub\\Lcrmartins\\Job-Offer-CRUD\\JobWebApp\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
