@@ -51,7 +51,7 @@ namespace JobWebApp.Controllers
         {
             if (ModelState.IsValid)
             {
-                job.JobOffer.ModWage = job.JobOffer.Wage * (1 + (job.JobOffer.Benefit / 100));
+                //job.JobOffer.ModWage = job.JobOffer.Wage * (1 + (job.JobOffer.Benefit / 100));
                 _context.JobOffer.Add(job.JobOffer);
                 _context.SaveChanges();
 
@@ -96,7 +96,7 @@ namespace JobWebApp.Controllers
         {
             if (ModelState.IsValid)
             {
-                job.JobOffer.ModWage = job.JobOffer.Wage * (1 + job.JobOffer.Benefit / 100);
+                //job.JobOffer.ModWage = job.JobOffer.Wage * (1 + job.JobOffer.Benefit / 100);
                 _context.JobOffer.Update(job.JobOffer);
                 _context.SaveChanges();
 
@@ -173,23 +173,18 @@ namespace JobWebApp.Controllers
                 return NotFound();
             }
             job.Position = _context.Position.FirstOrDefault(u => u.Id == job.IdType);
+
+            decimal benefitCurrency = 0;
+            decimal baseWage = 0;
+            baseWage = job.Wage * 100 / (100 + job.Benefit);
+            benefitCurrency = job.Wage - baseWage;
+            string baseWageCurrency = baseWage.ToString("C");
+            string benefitCurrencyCurrency = benefitCurrency.ToString("C");
+            string wage = job.Wage.ToString("C");
+            ViewBag.baseWage = baseWageCurrency;
+            ViewBag.benefitCurrency = benefitCurrencyCurrency;
+            ViewBag.wage = wage;
             return PartialView("_DetailJobOfferModelPartial", job);
         }
-
-
-        //public async Task<IActionResult> Default(int? id)
-        //{
-        //    JobOffer job = new JobOffer();
-        //    if (id == null)
-        //    {
-        //        return View(job);
-        //    }
-        //    else
-        //    {
-        //        job = await _context.JobOffer.FindAsync(id); // Obtain the job
-        //        job.Position = _context.Position.FirstOrDefault(u => u.Id == job.IdType);
-        //        return View(job);
-        //    }
-        //}
     }
 }

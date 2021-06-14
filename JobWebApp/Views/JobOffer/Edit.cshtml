@@ -57,7 +57,7 @@
         <div class="col-md-4">
             <div class="form-group">
                 <label asp-for="JobOffer.PostDate" class="control-label"></label>
-                <input asp-for="JobOffer.PostDate" class="form-control" />
+                <input asp-for="JobOffer.PostDate" class="form-control" asp-format="{0:yyyy-MM-dd}" />
                 <span asp-validation-for="JobOffer.PostDate" class="text-danger"></span>
             </div>
             <div class="form-group">

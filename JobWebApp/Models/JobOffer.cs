@@ -46,10 +46,6 @@ namespace JobWebApp.Models
         [Column(TypeName = "decimal(18,2)")]
         public decimal Benefit { get; set; }
 
-        [DisplayName("Corrected Wage")]
-        [Column(TypeName = "decimal(18,2)")]
-        public decimal? ModWage { get; set; }
-
         [DisplayName("Job Position")]
         public int IdType { get; set; }
         [ForeignKey("IdType")]

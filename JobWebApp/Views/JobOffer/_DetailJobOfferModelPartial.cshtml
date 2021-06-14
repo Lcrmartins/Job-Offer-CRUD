@@ -19,12 +19,14 @@
                     <dd><strong>Local: </strong><br /><span>@Html.DisplayFor(model => model.Local)</span></dd>
                     <dd><strong>Contract Type: </strong><br /><span>@Model.Position</span></dd>
                     <dd><strong>Posted Date: </strong><br /><span>@Html.DisplayFor(model => model.PostDate)</span></dd>
-                    <dd><strong>Description: </strong><br /><span>@Model.Description</span></dd>  
+                    <dd><strong>Description: </strong><br /><span>@Model.Description</span></dd>
                     <dd><strong>Responsibilities: </strong><br /><span>@Model.Responsibility</span></dd>
                     <dd><strong>Requirements: </strong><br /><span>@Model.Requirement</span></dd>
-                    <dd><strong>Wage: $</strong><br /><span>@Html.DisplayFor(model => model.Wage)</span></dd>
-                    <dd><strong>Benefits: %</strong><br /><span>@Model.Benefit</span></dd>    
-                    <dd><strong>Final Wage: </strong><br /><span>@Model.ModWage</span></dd>                        
+                    <dd><strong>Final Wage: $</strong><br /><span>@ViewBag.Wage</span></dd>
+                    <dd><strong>Benefits: %</strong><br /><span>@Model.Benefit</span></dd>
+                    <dd><strong>Wage Calculations:</strong></dd>
+                    <row>Base Wage: @ViewBag.baseWage</row>
+                    <row>Calculated Benefit: @ViewBag.benefitCurrency</row>                      
                 </dl>
             </div>
         </div>

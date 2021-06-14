@@ -1730,7 +1730,6 @@ D:\GitHub\Lcrmartins\Job-Offer-CRUD\JobWebApp\obj\Debug\net5.0\JobWebApp.TagHelp
 D:\GitHub\Lcrmartins\Job-Offer-CRUD\JobWebApp\obj\Debug\net5.0\JobWebApp.RazorCoreGenerate.cache
 D:\GitHub\Lcrmartins\Job-Offer-CRUD\JobWebApp\obj\Debug\net5.0\Razor\Views\Home\Index.cshtml.g.cs
 D:\GitHub\Lcrmartins\Job-Offer-CRUD\JobWebApp\obj\Debug\net5.0\Razor\Views\JobOffer\Create.cshtml.g.cs
-D:\GitHub\Lcrmartins\Job-Offer-CRUD\JobWebApp\obj\Debug\net5.0\Razor\Views\JobOffer\Delete.cshtml.g.cs
 D:\GitHub\Lcrmartins\Job-Offer-CRUD\JobWebApp\obj\Debug\net5.0\Razor\Views\JobOffer\Detail.cshtml.g.cs
 D:\GitHub\Lcrmartins\Job-Offer-CRUD\JobWebApp\obj\Debug\net5.0\Razor\Views\JobOffer\Edit.cshtml.g.cs
 D:\GitHub\Lcrmartins\Job-Offer-CRUD\JobWebApp\obj\Debug\net5.0\Razor\Views\JobOffer\Index.cshtml.g.cs
@@ -1752,6 +1751,6 @@ D:\GitHub\Lcrmartins\Job-Offer-CRUD\JobWebApp\obj\Debug\net5.0\JobWebApp.dll
 D:\GitHub\Lcrmartins\Job-Offer-CRUD\JobWebApp\obj\Debug\net5.0\ref\JobWebApp.dll
 D:\GitHub\Lcrmartins\Job-Offer-CRUD\JobWebApp\obj\Debug\net5.0\JobWebApp.pdb
 D:\GitHub\Lcrmartins\Job-Offer-CRUD\JobWebApp\obj\Debug\net5.0\JobWebApp.genruntimeconfig.cache
-D:\GitHub\Lcrmartins\Job-Offer-CRUD\JobWebApp\obj\Debug\net5.0\Razor\Views\JobOffer\Default.cshtml.g.cs
 D:\GitHub\Lcrmartins\Job-Offer-CRUD\JobWebApp\obj\Debug\net5.0\Razor\Views\JobOffer\_DetailJobOfferModelPartial.cshtml.g.cs
 D:\GitHub\Lcrmartins\Job-Offer-CRUD\JobWebApp\obj\Debug\net5.0\Razor\Views\JobOffer\_DeleteJobOfferModalPartial.cshtml.g.cs
+D:\GitHub\Lcrmartins\Job-Offer-CRUD\JobWebApp\obj\Debug\net5.0\JobWebApp.csproj.AssemblyReference.cache
