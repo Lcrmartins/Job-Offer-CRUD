@@ -1,0 +1,32 @@
+﻿@model JobWebApp.Models.JobOffer
+
+<div class="modal fade" id="detailJobOffer">
+    <div class="modal-dialog">
+        <div class="modal-content" style="background-color:antiquewhite;">
+            <div class="modal-header">
+                <h4 class="modal-title" id="detailJobOfferLabel"> Job Offer Details</h4>
+
+                <button type="button" class="close btn-close" data-dismiss="modal" aria-label="Close" aria-hidden="true">
+                    <span></span>
+                </button>
+                
+            </div>
+
+            <div class="modal-body">
+                <dl class="row">
+                    <dd><strong>Job Offer #: </strong><br /><span>@Html.DisplayFor(model => model.Id)</span></dd>
+                    <dd><strong>Job Offer: </strong><br /><span>@Html.DisplayFor(model => model.Title)</span></dd>
+                    <dd><strong>Local: </strong><br /><span>@Html.DisplayFor(model => model.Local)</span></dd>
+                    <dd><strong>Contract Type: </strong><br /><span>@Model.Position</span></dd>
+                    <dd><strong>Posted Date: </strong><br /><span>@Html.DisplayFor(model => model.PostDate)</span></dd>
+                    <dd><strong>Description: </strong><br /><span>@Model.Description</span></dd>  
+                    <dd><strong>Responsibilities: </strong><br /><span>@Model.Responsibility</span></dd>
+                    <dd><strong>Requirements: </strong><br /><span>@Model.Requirement</span></dd>
+                    <dd><strong>Wage: $</strong><br /><span>@Html.DisplayFor(model => model.Wage)</span></dd>
+                    <dd><strong>Benefits: %</strong><br /><span>@Model.Benefit</span></dd>    
+                    <dd><strong>Final Wage: </strong><br /><span>@Model.ModWage</span></dd>                        
+                </dl>
+            </div>
+        </div>
+    </div>
+</div>

@@ -21,9 +21,9 @@ namespace JobWebApp.Controllers
         {
             IEnumerable<JobOffer> listJobOffers = _context.JobOffer;
 
-            foreach(var job in listJobOffers)
+            foreach (var job in listJobOffers)
             {
-                job.Position = _context.Position.FirstOrDefault(u => u.Id == job.IdType);                
+                job.Position = _context.Position.FirstOrDefault(u => u.Id == job.IdType);
             }
             return View(listJobOffers);
         }
@@ -51,7 +51,7 @@ namespace JobWebApp.Controllers
         {
             if (ModelState.IsValid)
             {
-                job.JobOffer.ModWage = job.JobOffer.Wage * (1 + job.JobOffer.Contribution / 100);
+                job.JobOffer.ModWage = job.JobOffer.Wage * (1 + (job.JobOffer.Benefit / 100));
                 _context.JobOffer.Add(job.JobOffer);
                 _context.SaveChanges();
 
@@ -85,7 +85,7 @@ namespace JobWebApp.Controllers
             {
                 return NotFound();
             }
-                        
+
             return View(jobOfferVM);
         }
 
@@ -96,7 +96,7 @@ namespace JobWebApp.Controllers
         {
             if (ModelState.IsValid)
             {
-                job.JobOffer.ModWage = job.JobOffer.Wage * (1 + job.JobOffer.Contribution / 100);
+                job.JobOffer.ModWage = job.JobOffer.Wage * (1 + job.JobOffer.Benefit / 100);
                 _context.JobOffer.Update(job.JobOffer);
                 _context.SaveChanges();
 
@@ -107,6 +107,7 @@ namespace JobWebApp.Controllers
             return View(job);
         }
         // Http Get Delete
+        [HttpGet]
         public IActionResult Delete(int? id)
         {
             if (id == null || id == 0)
@@ -122,7 +123,8 @@ namespace JobWebApp.Controllers
                 return NotFound();
             }
 
-            return View(job);
+            job.Position = _context.Position.FirstOrDefault(u => u.Id == job.IdType);
+            return PartialView("_DeleteJobOfferModalPartial", job);
         }
 
         // Http Post Delete
@@ -149,15 +151,15 @@ namespace JobWebApp.Controllers
             else
             {
                 TempData["message"] = "The validation failed. The text typed doesn't match. Type exactly the SIX first char of the job Title Name.";
-                return RedirectToAction("Delete","JobOffer", new { @id = id });
+                return PartialView("_DeleteJobOfferModalPartial", new { @id = id });
 
             }
         }
 
         // Http Get Detail
-        
+
         public IActionResult Detail(int? id)
-        {            
+        {
             if (id == null || id == 0)
             {
                 return NotFound();
@@ -171,10 +173,23 @@ namespace JobWebApp.Controllers
                 return NotFound();
             }
             job.Position = _context.Position.FirstOrDefault(u => u.Id == job.IdType);
-            return View(job);
+            return PartialView("_DetailJobOfferModelPartial", job);
         }
 
-        
 
+        //public async Task<IActionResult> Default(int? id)
+        //{
+        //    JobOffer job = new JobOffer();
+        //    if (id == null)
+        //    {
+        //        return View(job);
+        //    }
+        //    else
+        //    {
+        //        job = await _context.JobOffer.FindAsync(id); // Obtain the job
+        //        job.Position = _context.Position.FirstOrDefault(u => u.Id == job.IdType);
+        //        return View(job);
+        //    }
+        //}
     }
 }

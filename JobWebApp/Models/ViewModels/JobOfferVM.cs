@@ -7,9 +7,9 @@ namespace JobWebApp.Models.ViewModels
     [Keyless]
     public class JobOfferVM
     {
-        
+
         public JobOffer JobOffer { get; set; }
-        
+
         public IEnumerable<SelectListItem> PositionDropDown { get; set; }
     }
 }

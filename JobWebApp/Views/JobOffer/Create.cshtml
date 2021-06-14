@@ -4,6 +4,24 @@
     ViewData["Title"] = "Create";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+
+@*<head>
+    <script>
+$(function () {
+    var PlaceHolderElement = $('#PlaceHoderHere');
+    $('button[data-toggle="ajax-modal"]').click(function (event) {
+
+        var url = $(this).data('url');
+        $.get(url).done(function (data) {
+            PlaceHolderElement.html(data);
+            PlaceHolderElement.find('.modal').modal('show');
+        })
+    })
+
+}
+    </script>
+</head>*@
+
 <body style="background-color:#c4ddd3;">
     <h1>Create</h1>
 
@@ -76,9 +94,9 @@
             </div>
             <div class="form-group">
                 <br>
-                <label asp-for="JobOffer.Contribution" class="control-label"></label>
-                <input asp-for="JobOffer.Contribution" class="form-control" />
-                <span asp-validation-for="JobOffer.Contribution" class="text-danger"></span>
+                <label asp-for="JobOffer.Benefit" class="control-label"></label>
+                <input asp-for="JobOffer.Benefit" class="form-control" />
+                <span asp-validation-for="JobOffer.Benefit" class="text-danger"></span>
             </div>
         </div>
         <br>

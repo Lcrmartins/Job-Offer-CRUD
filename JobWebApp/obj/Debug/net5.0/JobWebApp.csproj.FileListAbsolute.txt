@@ -1714,7 +1714,6 @@ D:\GitHub\Lcrmartins\Job-Offer-CRUD\JobWebApp\bin\Debug\net5.0\runtimes\win-arm\
 D:\GitHub\Lcrmartins\Job-Offer-CRUD\JobWebApp\bin\Debug\net5.0\runtimes\win-arm64\lib\net5.0\dotnet-aspnet-codegenerator-design.exe
 D:\GitHub\Lcrmartins\Job-Offer-CRUD\JobWebApp\bin\Debug\net5.0\runtimes\win\lib\netstandard2.0\System.Runtime.Caching.dll
 D:\GitHub\Lcrmartins\Job-Offer-CRUD\JobWebApp\bin\Debug\net5.0\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
-D:\GitHub\Lcrmartins\Job-Offer-CRUD\JobWebApp\obj\Debug\net5.0\JobWebApp.csproj.AssemblyReference.cache
 D:\GitHub\Lcrmartins\Job-Offer-CRUD\JobWebApp\obj\Debug\net5.0\JobWebApp.GeneratedMSBuildEditorConfig.editorconfig
 D:\GitHub\Lcrmartins\Job-Offer-CRUD\JobWebApp\obj\Debug\net5.0\JobWebApp.AssemblyInfoInputs.cache
 D:\GitHub\Lcrmartins\Job-Offer-CRUD\JobWebApp\obj\Debug\net5.0\JobWebApp.AssemblyInfo.cs
@@ -1753,3 +1752,6 @@ D:\GitHub\Lcrmartins\Job-Offer-CRUD\JobWebApp\obj\Debug\net5.0\JobWebApp.dll
 D:\GitHub\Lcrmartins\Job-Offer-CRUD\JobWebApp\obj\Debug\net5.0\ref\JobWebApp.dll
 D:\GitHub\Lcrmartins\Job-Offer-CRUD\JobWebApp\obj\Debug\net5.0\JobWebApp.pdb
 D:\GitHub\Lcrmartins\Job-Offer-CRUD\JobWebApp\obj\Debug\net5.0\JobWebApp.genruntimeconfig.cache
+D:\GitHub\Lcrmartins\Job-Offer-CRUD\JobWebApp\obj\Debug\net5.0\Razor\Views\JobOffer\Default.cshtml.g.cs
+D:\GitHub\Lcrmartins\Job-Offer-CRUD\JobWebApp\obj\Debug\net5.0\Razor\Views\JobOffer\_DetailJobOfferModelPartial.cshtml.g.cs
+D:\GitHub\Lcrmartins\Job-Offer-CRUD\JobWebApp\obj\Debug\net5.0\Razor\Views\JobOffer\_DeleteJobOfferModalPartial.cshtml.g.cs

@@ -113,7 +113,7 @@ namespace JobWebApp.Controllers
         public IActionResult DeletePost(int id)
         {
             var position = _context.Position.Find(id);
-            if(position == null)
+            if (position == null)
             {
                 return NotFound();
             }

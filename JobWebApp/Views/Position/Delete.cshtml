@@ -21,11 +21,16 @@
                     @Html.DisplayFor(model => model.PositionType)
                 </dd>
             </dl>
-            <form asp-action="Delete">
+            <h4 danger>WARNING</h4>
+            <span>Deleting this job type, all job offers with thid type will be deleted also!</span>
+            <form class="form-group" asp-action="Delete">
                 <input type="hidden" asp-for="Id" />
-                <input type="submit" class="btn btn-outline-danger" value="Delete" />
-                <a asp-action="Index" class="btn btn-outline-primary">Back to List</a>
+                <input type="submit" class="btn btn-outline-danger" value="Yes. Delete" />
+                <a asp-action="Index" class="btn btn-outline-primary">No. Back to List</a>
             </form>
         </div>
     </div>
 </body>
+
+
+

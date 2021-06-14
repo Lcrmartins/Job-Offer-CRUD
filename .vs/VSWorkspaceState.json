@@ -1,7 +1,12 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\JobWebApp",
+    "\\JobWebApp\\Controllers",
+    "\\JobWebApp\\Models",
+    "\\JobWebApp\\Views",
+    "\\JobWebApp\\Views\\JobOffer"
   ],
-  "SelectedNode": "\\JobWebApp.sln",
+  "SelectedNode": "\\JobWebApp\\Controllers\\JobOfferController.cs",
   "PreviewInSolutionExplorer": false
 }

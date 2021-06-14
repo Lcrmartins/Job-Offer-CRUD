@@ -31,7 +31,8 @@ namespace JobWebApp.Models
         public string Requirement { get; set; }
 
         [Required(ErrorMessage = "You must fill the Post Date field.")]
-        [DataType(DataType.Date, ErrorMessage ="Date in wrong format")]
+        [DataType(DataType.Date, ErrorMessage = "Date in wrong format")]
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:yyyy/MM/dd}")]
         [Display(Name = "Post Date")]
         public DateTime? PostDate { get; set; }
 
@@ -40,10 +41,10 @@ namespace JobWebApp.Models
         [Column(TypeName = "decimal(18,2)")]
         public decimal Wage { get; set; }
 
-        [Required(ErrorMessage = "You must fill the contribution field (in %).")]
-        [Range(0.1, 10)]
+        [Required(ErrorMessage = "You must fill the benefit field (in %).")]
+        [Range(0, 100)]
         [Column(TypeName = "decimal(18,2)")]
-        public decimal Contribution { get; set; }
+        public decimal Benefit { get; set; }
 
         [DisplayName("Corrected Wage")]
         [Column(TypeName = "decimal(18,2)")]
